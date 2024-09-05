@@ -2,6 +2,8 @@ import { Injectable , Logger} from '@nestjs/common';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as puppeteer from 'puppeteer';
+import chrome from 'chrome-aws-lambda';
+
 
 @Injectable()
 export class PdfService {
