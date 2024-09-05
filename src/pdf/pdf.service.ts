@@ -7,7 +7,13 @@ import * as puppeteer from 'puppeteer';
 export class PdfService {
     private readonly logger = new Logger(PdfService.name);
   async createPdf(data: any): Promise<Buffer> {
-    const templatePath = this.getTemplatePath(data.country);
+    //const templatePath = this.getTemplatePath(data.country);
+
+    this.logger.log("MI RAMON: "+__dirname);
+    //const templatePath = path.join(__dirname, '..', 'src', 'pdf', 'templates', `${data.country}.html`);
+    const templatePath = path.join(__dirname, 'templates', `${data.country}.html`);
+
+
     let templateContent = fs.readFileSync(templatePath, 'utf8');
 
     // Convertir fechas
@@ -92,6 +98,7 @@ export class PdfService {
 
 
   private getTemplatePath(country: string): string {
+    this.logger.log("MI RAMON: "+path.join('src', 'pdf', 'templates', 'GEO1.html'));
     
     
     switch (country.toUpperCase()) {
