@@ -37,16 +37,7 @@ export class PdfService {
 
 
      this.logger.log('nombre: '+data.name);
-     this.logger.log('dia de entrada: '+entrada.day);
-     this.logger.log('mes de entrada: '+entrada.month);
-     this.logger.log('ano de entrada: '+entrada.year);
-     this.logger.log('dia de la semana de entrada: '+entrada.weekday);
-
-     this.logger.log('dia de salida: '+salida.day);
-     this.logger.log('mes de salida: '+salida.month);
-     this.logger.log('ano de salida: '+salida.year);
-     this.logger.log('dia de la semana de salida: '+salida.weekday);
-     this.logger.log('cantidad de noches: '+noches.toString());
+     
 
 
     // Convertir HTML a PDF
@@ -102,16 +93,17 @@ export class PdfService {
 
   private getTemplatePath(country: string): string {
     
-   
     
-
     switch (country.toUpperCase()) {
+
+       
+        
       case 'GEO':
-        return path.join(__dirname, 'templates', 'GEO.html');
+        return path.join(__dirname, '..', 'src', 'pdf', 'templates', 'GEO.html');
       case 'MGA':
-        return path.join(__dirname, 'templates', 'MGA.html');
+        return path.join(__dirname, '..', 'src', 'pdf', 'templates', 'MGA.html');
       case 'PBM':
-        return path.join(__dirname, 'templates', 'PBM.html');
+        return path.join(__dirname, '..', 'src', 'pdf', 'templates', 'PBM.html');
       default:
         throw new Error('Invalid country');
     }
